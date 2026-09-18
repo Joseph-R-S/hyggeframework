@@ -12,7 +12,8 @@ class SchemaValidator extends BaseController {
 
       const errors = [];
       const body = req.body || {};
-
+      const sanitizedBody = {};
+      
       if (!schema || Object.keys(schema).length === 0) {
         console.log('ADVERTENCIA: El esquema enviado está vacío o es undefined.');
         return next();
