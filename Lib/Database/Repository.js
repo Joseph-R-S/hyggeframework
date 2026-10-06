@@ -88,11 +88,13 @@ class Repository {
 
   // 6. Guardar (INSERT / UPDATE)
   async save(record) {
+
+    const id = record.id ? Number(record.id) : null;
     const keys = Object.keys(record).filter(key => key !== 'id');
     const values = keys.map(key => record[key]);
     let sql = '';
 
-    if (!record.id) {
+    if (!id) {
       const columns = keys.join(', ');
       const placeholders = keys.map(() => '?').join(', ');
       sql = `INSERT INTO ${this.tableName} (${columns}) VALUES (${placeholders})`;

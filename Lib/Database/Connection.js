@@ -8,7 +8,7 @@ class Connection {
   static async getInstance() {
     if (!Connection.#instance) {
       // 1. Lectura desde el objeto centralizado Env (en lugar de process.env)
-      const type = process.env.DB_TYPE; // DB_TYPE puede ser dinámico según la BD usada
+      const type = process.env.DB_TYPE; 
       const host = Env.DB.HOST;
       const portEnv = Env.DB.PORT;
       const name = Env.DB.NAME;
